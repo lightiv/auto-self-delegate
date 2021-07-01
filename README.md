@@ -36,10 +36,12 @@ printf "$(date) Waiting for 300 seconds" >> ~/delegations/selfdelegationlog.txt;
 sleep 300;  
 printf "\n";  
   
-delegate_value=$(desmos query account <your desmos1 address> -o json | jq -r '.value.coins[].amount')"udaric" \  
-     >> ~/delegations/selfdelegationlog.txt;  
-desmos tx staking delegate <desmosvaloper (validator) you are delegating to> -y $delegate_value --from <yor key name> \  
-     -fees 5000udaric --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
+delegate_value=$(desmos query account <your desmos1 address> -o json | \  
+     jq -r '.value.coins[].amount')"udaric" >> ~/delegations/selfdelegationlog.txt; \  
+     
+desmos tx staking delegate <desmosvaloper (validator) you are delegating to> -y \  
+     $delegate_value --from <yor key name> -fees 5000udaric --chain-id morpheus-apollo-1 \  
+     --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
   
 printf "$(date) Delegated : $delegate_value\n" >> ~/delegations/selfdelegationlog.txt;  
 printf "\n";  
