@@ -1,4 +1,4 @@
-# auto-self-delegate
+# Auto-Self-Delegate
 
 Here is a quick script to auto self-delegate your earned commission and rewards.  I learned this technic during the Akashian Challenges ITN phases
 
@@ -11,6 +11,13 @@ Here is a quick script to auto self-delegate your earned commission and rewards.
 desmos keys add <yourkeyname> --recover --keyring-backend test  
 ```  
 ## Step 2 - Create Your Self-Delegation Script
+Log in as root
+```  
+mkdir ~/delegations 
+cd ~/delegations
+nano selfdelegate.sh
+```
+Paste the following into selfdelegate.sh  
 ```  
 #!/bin/bash  
   
@@ -37,4 +44,25 @@ printf "\n";
   
 printf "$(date) Self Delegation Completed" >> ~/delegations/selfdelegationlog.txt;  
 printf "\n";  
+```  
+Save the file
+```  
+CTRL + o  
+CTRL + x
+```
+Make it executable
+```  
+chmod +x selfdelegate.sh  
+```  
+## Step 3 - Automate The Script
+We will use a cron job to automate the script
+
+Configure cron job to run script  
+```  
+crontab -e   
+```
+# Add the following two lines:
+```
+@hourly ~/delegations/selfdelegate.sh >> ~/delegations/selfdelegationlog.txt  
+# */15 * * * *  ~/delegations/selfdelegate.sh >> ~/delegations/selfdelegationlog.txt  
 ```  
