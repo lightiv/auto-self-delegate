@@ -27,27 +27,23 @@ printf "\n";
   
 printf "$(date) Beginning Self Delegation" >> ~/delegations/selfdelegationlog.txt;  
 printf "\n";  
-desmos tx distribution withdraw-rewards <desmosvaloper (validator) you are withdrawing from> \  
-     -y --from <your key name> --fees 5000udaric --commission --chain-id morpheus-apollo-1 \  
-     --keyring-backend test >> ~/delegations/selfdelegationlog.txt;
+desmos tx distribution withdraw-rewards desmosvaloper1vkq24s8zz2dswgq0zzas5s7s38ykmd63nqmmmf -y --from skynet --fees 5000udaric --commission --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
   
 printf "\n";  
 printf "$(date) Waiting for 300 seconds" >> ~/delegations/selfdelegationlog.txt;  
 sleep 300;  
 printf "\n";  
   
-delegate_value=$(desmos query account <your desmos1 address> | \  
-     jq -r '.value.coins[].amount')"udaric" >> ~/delegations/selfdelegationlog.txt; \  
-     
-desmos tx staking delegate <desmosvaloper (validator) you are delegating to> -y \  
-     $delegate_value --from <yor key name> --fees 5000udaric --chain-id morpheus-apollo-1 \  
-     --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
+delegate_value=$(desmos query account desmos1vkq24s8zz2dswgq0zzas5s7s38ykmd63ddn03m  | jq -r '.value.coins[].amount')"udaric" >> ~/delegations/selfdelegationlog.txt;  
+  
+desmos tx staking delegate desmosvaloper1vkq24s8zz2dswgq0zzas5s7s38ykmd63nqmmmf -y $delegate_value --from skynet --fees 5000udaric --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
   
 printf "$(date) Delegated : $delegate_value\n" >> ~/delegations/selfdelegationlog.txt;  
 printf "\n";  
   
 printf "$(date) Self Delegation Completed" >> ~/delegations/selfdelegationlog.txt;  
 printf "\n";  
+
 ```  
 Save the file
 ```  
