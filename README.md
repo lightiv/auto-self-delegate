@@ -28,8 +28,8 @@ printf "\n";
 printf "$(date) Beginning Self Delegation" >> ~/delegations/selfdelegationlog.txt;  
 printf "\n";  
 desmos tx distribution withdraw-rewards <desmosvaloper (validator) you are withdrawing from> \  
-     -y -o json --from <your key name> --fees 5000uakt --commission --chain-id morpheus-apollo-1 --keyring-backend \  
-      test >> ~/delegations/selfdelegationlog.txt;
+     -y -o json --from <your key name> --fees 5000uakt --commission --chain-id morpheus-apollo-1 \  
+     --keyring-backend test >> ~/delegations/selfdelegationlog.txt;
   
 printf "\n";  
 printf "$(date) Waiting for 300 seconds" >> ~/delegations/selfdelegationlog.txt;  
