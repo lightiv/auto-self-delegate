@@ -65,7 +65,7 @@ Configure cron job to run script
 ```  
 crontab -e   
 ```
-## Add the following two lines:
+Add the following two lines:
 ```
 @hourly ~/delegations/selfdelegate.sh >> ~/delegations/selfdelegationlog.txt  
 # */15 * * * *  ~/delegations/selfdelegate.sh >> ~/delegations/selfdelegationlog.txt  
