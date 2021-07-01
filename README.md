@@ -1,6 +1,8 @@
+![SkyNet | Validators](http://skynet.paullovette.com/wp-content/uploads/2021/03/SkyNet-Full-Logo-1500x500-Twitter-Cover.png)
+
 # Auto-Self-Delegate
 
-Here is a quick script to auto self-delegate your earned commission and rewards.  I learned this technic during the Akashian Challenges ITN phases
+Here is a quick script to auto self-delegate your earned commission and rewards.  I learned this technic during the Akashian Challenges ITN phases.  NOTE: This will not work for Ledger deployed keys as you have to confirm every transaction on your Ledger.
 
 ## Step 1 - Add Your Key To The --keyring-backend
 
