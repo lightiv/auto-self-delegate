@@ -9,11 +9,13 @@ Here is a quick script to auto self-delegate your earned commission and rewards.
 # STOP - CAUTION
 ## Note the following will allow anyone with access to your node and knowledge of the above to execute any command on you node!  Your node must be secure!!!
 
+Login as root  
+
 ```  
 desmos keys add <yourkeyname> --recover --keyring-backend test  
 ```  
 ## Step 2 - Create Your Self-Delegation Script
-Log in as root
+
 ```  
 mkdir ~/delegations 
 cd ~/delegations
