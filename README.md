@@ -17,9 +17,7 @@ desmos keys add <yourkeyname> --recover --keyring-backend test
 ## Step 2 - Create Your Self-Delegation Script
 
 ```  
-mkdir ~/delegations 
-cd ~/delegations
-nano selfdelegate.sh
+mkdir ~/delegations && cd ~/delegations && nano selfdelegate.sh  
 ```
 Paste the following into selfdelegate.sh  
 ```  
