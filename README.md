@@ -27,14 +27,14 @@ printf "\n";
   
 printf "$(date) Beginning Self Delegation" >> ~/delegations/selfdelegationlog.txt;  
 printf "\n";  
-desmos tx distribution withdraw-rewards desmosvaloper1vkq24s8zz2dswgq0zzas5s7s38ykmd63nqmmmf -y --from skynet --fees 5000udaric --commission --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
+desmos tx distribution withdraw-rewards <desmosvaloper1.....validator> -y --from skynet --fees 5000udaric --commission --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
   
 printf "\n";  
 printf "$(date) Waiting for 300 seconds" >> ~/delegations/selfdelegationlog.txt;  
 sleep 300;  
 printf "\n";  
   
-delegate_value=$(desmos query account desmos1vkq24s8zz2dswgq0zzas5s7s38ykmd63ddn03m  | jq -r '.value.coins[].amount')"udaric" >> ~/delegations/selfdelegationlog.txt;  
+delegate_value=$(desmos query bank balances <desmos1...your address> -o json | jq -r '.balances[].amount')"udaric" >> ~/delegations/selfdelegationlog.txt;  
   
 desmos tx staking delegate desmosvaloper1vkq24s8zz2dswgq0zzas5s7s38ykmd63nqmmmf -y $delegate_value --from skynet --fees 5000udaric --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
   
