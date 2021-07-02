@@ -31,7 +31,7 @@ desmos tx distribution withdraw-rewards <desmosvaloper1.....validator address> -
   
 printf "\n";  
 printf "$(date) Waiting for 300 seconds" >> ~/delegations/selfdelegationlog.txt;  
-sleep 300;  
+sleep 30;  
 printf "\n";  
   
 delegate_value=$(desmos query bank balances <desmos1...your address> -o json | jq -r '.balances[].amount')"udaric" >> ~/delegations/selfdelegationlog.txt;  
