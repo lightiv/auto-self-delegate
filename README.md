@@ -27,7 +27,7 @@ printf "\n";
   
 printf "$(date) Beginning Self Delegation" >> ~/delegations/selfdelegationlog.txt;  
 printf "\n";  
-desmos tx distribution withdraw-rewards <desmosvaloper1.....validator> -y --from skynet --fees 5000udaric --commission --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
+desmos tx distribution withdraw-rewards <desmosvaloper1.....validator address> -y --from skynet --fees 5000udaric --commission --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
   
 printf "\n";  
 printf "$(date) Waiting for 300 seconds" >> ~/delegations/selfdelegationlog.txt;  
