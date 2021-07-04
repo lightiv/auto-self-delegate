@@ -30,7 +30,7 @@ printf "\n";
 desmos tx distribution withdraw-rewards <desmosvaloper1.....validator address> -y --from skynet --fees 5000udaric --commission --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
   
 printf "\n";  
-printf "$(date) Waiting for 300 seconds" >> ~/delegations/selfdelegationlog.txt;  
+printf "$(date) Waiting for 30 seconds" >> ~/delegations/selfdelegationlog.txt;  
 sleep 30;  
 printf "\n";  
   
