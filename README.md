@@ -19,9 +19,10 @@ desmos keys add <yourkeyname> --recover --keyring-backend test
 ```  
 mkdir ~/delegations && cd ~/delegations
 ```
-Download the selfdelegate.sh  
-
-
+Download the selfdelegate.sh
+```
+wget https://raw.githubusercontent.com/lightiv/auto-self-delegate/main/selfdelegate.sh
+```
 
 ## Step 3 - Automate The Script
 We will use a cron job to automate the script
