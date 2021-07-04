@@ -14,46 +14,15 @@ Login as root
 ```  
 desmos keys add <yourkeyname> --recover --keyring-backend test  
 ```  
-## Step 2 - Create Your Self-Delegation Script
+## Step 2 - Download The Self-Delegation Script
 
 ```  
-mkdir ~/delegations && cd ~/delegations && nano selfdelegate.sh  
+mkdir ~/delegations && cd ~/delegations
 ```
-Paste the following into selfdelegate.sh  
-```  
-#!/bin/bash  
-  
-printf "\n";  
-  
-printf "$(date) Beginning Self Delegation" >> ~/delegations/selfdelegationlog.txt;  
-printf "\n";  
-desmos tx distribution withdraw-rewards <desmosvaloper1.....validator address> -y --from skynet --fees 5000udaric --commission --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
-  
-printf "\n";  
-printf "$(date) Waiting for 30 seconds" >> ~/delegations/selfdelegationlog.txt;  
-sleep 30;  
-printf "\n";  
-  
-delegate_value=$(desmos query bank balances <desmos1...your address> -o json | jq -r '.balances[].amount')"udaric" >> ~/delegations/selfdelegationlog.txt;  
-  
-desmos tx staking delegate desmosvaloper1vkq24s8zz2dswgq0zzas5s7s38ykmd63nqmmmf -y $delegate_value --from skynet --fees 5000udaric --chain-id morpheus-apollo-1 --keyring-backend test >> ~/delegations/selfdelegationlog.txt;  
-  
-printf "$(date) Delegated : $delegate_value\n" >> ~/delegations/selfdelegationlog.txt;  
-printf "\n";  
-  
-printf "$(date) Self Delegation Completed" >> ~/delegations/selfdelegationlog.txt;  
-printf "\n";  
+Download the selfdelegate.sh  
 
-```  
-Save the file
-```  
-CTRL + o  
-CTRL + x
-```
-Make it executable
-```  
-chmod +x selfdelegate.sh  
-```  
+
+
 ## Step 3 - Automate The Script
 We will use a cron job to automate the script
 
